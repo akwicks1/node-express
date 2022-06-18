@@ -1,7 +1,7 @@
 const express = require('express');
-const campsiteRouter = express.Router();
+const partnerRouter = express.Router();
 
-campsiteRouter.route('/')
+partnerRouter.route('/')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -9,23 +9,23 @@ campsiteRouter.route('/')
 })
 
 .get((req, res) => {
-    res.end('Will send all the campsites to you');
+    res.end('Will send all the partners to you');
 })
 
 .post((req, res) => {
-    res.end(`Will add the campsite: ${req.body.name} with description: ${req.body.description}`);
+    res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
 })
 
 .put((req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /campsites');
+    res.end('PUT operation not supported on /partners');
 })
 
 .delete((req, res) => {
     res.end('Deleting all campsites');
 });
 
-campsiteRouter.route('/:campsiteId')
+partnerRouter.route('/:partnerId')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
@@ -33,24 +33,24 @@ campsiteRouter.route('/:campsiteId')
 })
 
 .get((req, res) => {
-    res.end('Will get campiste with that id');
+    res.end('Will get partner with that id');
 })
 
 .post((req, res) => {
-    res.end(`Will add campsite with that id: ${req.params.campsiteId}`);
+    res.end(`Will add partner with that id: ${req.params.partnerId}`);
 })
 
 .put((req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /campsiteId');
+    res.end('PUT operation not supported on /partnerId');
 })
 
 .delete((req, res) => {
-    res.end('Deleting all camps with that id');
+    res.end('Deleting the partner with the id');
 });
 
 ;
 
 
 
-module.exports = campsiteRouter;
+module.exports = partnerRouter;
